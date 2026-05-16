@@ -26,4 +26,14 @@ public class ForecastRecordService {
         return this.repository.findAll();
     }
 
+    /**
+     * Saves a record into the database
+     * @param record the record to save
+     * @return the record saved in the database
+     */
+    public ForecastRecord saveRecord(ForecastRecord record) {
+        // check required fields first
+        return this.repository.save(record);
+    }
+
 }
