@@ -11,14 +11,14 @@ services:
       - "5432:5432"
 
   backend:
-    build: ./backend
+    build: ./vffd-api
     ports:
       - "8080:8080"
     depends_on:
       - postgres
 
   frontend:
-    build: ./frontend
+    build: ./vffd-ui
     ports:
       - "4200:4200"
     depends_on:
