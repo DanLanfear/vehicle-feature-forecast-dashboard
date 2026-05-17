@@ -26,7 +26,7 @@ public class ForecastRecord {
     private String featureCode;
     private String featureName;
     private Integer projectedVolume;
-    private Float adoptionRate;
+    private Double adoptionRate;
     private String lastUpdatedBy;
 
 }
