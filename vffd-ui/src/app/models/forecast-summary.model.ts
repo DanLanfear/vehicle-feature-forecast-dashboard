@@ -1,4 +1,4 @@
-export interface ForecastRecord {
+export interface ForecastSummary {
   ids: number[];
   totalProjectedVolume: number;
   averageAdoptionRate: number;
