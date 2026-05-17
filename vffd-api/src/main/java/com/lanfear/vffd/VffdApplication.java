@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class VffdApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(VffdApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(VffdApplication.class, args);
+    }
 
 }
