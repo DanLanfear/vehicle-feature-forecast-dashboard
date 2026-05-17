@@ -8,13 +8,20 @@ Angular app in `/vffs-ui`
 Spring Boot app in `/vffd-api`
 
 ## Start Backend
-cd vffd-api
+
+cd vffd-api\
 ./mvnw spring-boot:run
 
 ## Start Frontend
-cd vffd-ui
-npm install
+
+cd vffd-ui\
+npm install\
 npm start
 
-## Database
-docker compose up -d
+Unable to finish tests\
+Angular change detection is delayed\
+no loading state\
+error messages are not specific\
+free text search is limited to filter\
+user input is not validated on backend\
+
