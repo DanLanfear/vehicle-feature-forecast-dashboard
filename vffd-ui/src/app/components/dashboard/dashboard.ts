@@ -13,7 +13,7 @@ import { ForecastRecordService } from '../../services/forecast-record.service';
 export class Dashboard implements OnInit {
   private forecastRecordService = inject(ForecastRecordService);
 
-  rowData: ForecastRecord[] = [];
+  recordData: ForecastRecord[] = [];
   colDefs: ColDef[] = [
     { field: 'id' },
     { field: 'vehicleModel' },
@@ -26,10 +26,12 @@ export class Dashboard implements OnInit {
     { field: 'adoptionRate' },
   ];
 
-  async ngOnInit() {
+  constructor() {}
+
+  ngOnInit() {
     this.forecastRecordService.getForecastRecords().subscribe({
       next: (data) => {
-        this.rowData = data;
+        this.recordData = [...data];
       },
       error: (err) => {
         console.error('API error', err);
