@@ -28,4 +28,8 @@ public class ForecastRecordController {
         return this.service.saveRecord(record);
     }
 
+    @GetMapping("/summary")
+    public ForecastSummaryDTO getSummary(@RequestBody List<Long> ids) {
+        return this.service.getSummary(ids);
+    }
 }
