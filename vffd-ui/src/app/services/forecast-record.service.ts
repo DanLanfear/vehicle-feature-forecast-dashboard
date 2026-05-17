@@ -22,4 +22,17 @@ export class ForecastRecordService {
       }),
     );
   }
+
+  /**
+   * creates a forecast record in the database
+   * @param record the record to create
+   */
+  createForecastRecord(record: ForecastRecord): Observable<ForecastRecord> {
+    return this.http.post<ForecastRecord>(`${this.baseUrl}`, record).pipe(
+      catchError((error) => {
+        console.error(error);
+        return throwError(() => error);
+      }),
+    );
+  }
 }
