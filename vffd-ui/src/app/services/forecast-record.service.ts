@@ -1,0 +1,20 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ForecastRecord } from '../models/forecast-record.model';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ForecastRecordService {
+  private baseUrl = 'http://localhost:8080/api/forecasts';
+
+  constructor(private http: HttpClient) {}
+
+  /**
+   * Gets all the forecast records
+   */
+  getForecastRecords(): Observable<ForecastRecord[]> {
+    return this.http.get<ForecastRecord[]>(`${this.baseUrl}`);
+  }
+}
