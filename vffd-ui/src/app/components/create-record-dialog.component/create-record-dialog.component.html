@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>Create New Forecast Row</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" class="form-grid" style="margin-top: 16px;">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Vehicle Model</mat-label>
+      <input matInput formControlName="vehicleModel">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Model Year</mat-label>
+      <input matInput type="number" formControlName="modelYear">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Region</mat-label>
+      <input matInput formControlName="region">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Quarter</mat-label>
+      <input matInput formControlName="quarter">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Feature Code</mat-label>
+      <input matInput formControlName="featureCode">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Feature Name</mat-label>
+      <input matInput formControlName="featureName">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Projected Volume</mat-label>
+      <input matInput type="number" formControlName="projectedVolume">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Adoption Rate (percentage)</mat-label>
+      <input matInput type="number" formControlName="adoptionRate">
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="submit()" [disabled]="form.invalid">
+    Create
+  </button>
+</mat-dialog-actions>
