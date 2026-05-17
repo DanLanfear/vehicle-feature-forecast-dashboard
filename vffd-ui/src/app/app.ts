@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
@@ -10,7 +10,7 @@ ModuleRegistry.registerModules([AllCommunityModule]);
   selector: 'app-root',
   imports: [RouterOutlet, MatToolbarModule],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = 'Vehicle Feature Forecast Dashboard';
