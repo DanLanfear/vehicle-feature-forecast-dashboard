@@ -28,7 +28,8 @@ public class ForecastRecordController {
         return this.service.saveRecord(record);
     }
 
-    @GetMapping("/summary")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/summary")
     public ForecastSummaryDTO getSummary(@RequestBody List<Long> ids) {
         return this.service.getSummary(ids);
     }

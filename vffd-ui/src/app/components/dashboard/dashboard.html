@@ -1,5 +1,27 @@
-<ag-grid-angular
-  class="ag-theme-quartz"
-  style="width: 100%; height: 500px;"
-  [rowData]="recordData"
-  [columnDefs]="colDefs"/>
+<div style="display:flex; flex-direction: column;gap:16px;">
+
+  <div style="display:flex; gap:16px;">
+    <mat-card class="summary-card">
+      <div class="title">Total Projected Volume</div>
+      <div class="value">{{ summaryData?.totalProjectedVolume ?? 0 }}</div>
+    </mat-card>
+
+    <mat-card class="summary-card">
+      <div class="title">Average Adoption Percentage</div>
+      <div class="value">{{ summaryData?.averageAdoptionRate ?? 0 }}</div>
+    </mat-card>
+  </div>
+
+  <ag-grid-angular
+    class="ag-theme-quartz"
+    style="width: 100%; height: 500px;"
+    [rowData]="recordData"
+    [columnDefs]="colDefs"
+    [pagination]="true"
+    [paginationPageSize]="20"
+    (modelUpdated)="onFilterChanged()"
+    (gridReady)="onGridReady($event)"/>
+
+  <button mat-flat-button (click)="openCreateDialog()">create</button>
+
+</div>
