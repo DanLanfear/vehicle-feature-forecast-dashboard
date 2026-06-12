@@ -72,13 +72,10 @@ export class Dashboard implements OnInit {
       if (result) {
         this.forecastRecordService.createForecastRecord(result).subscribe({
           next: () => {
-            console.log('Created Successfully');
+            this.getTableData();
           },
           error: (err) => {
             console.error('API error', err);
-          },
-          complete: () => {
-            this.getTableData();
           },
         });
       }
