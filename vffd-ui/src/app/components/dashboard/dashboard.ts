@@ -71,7 +71,7 @@ export class Dashboard implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.forecastRecordService.createForecastRecord(result).subscribe({
-          next: (data) => {
+          next: () => {
             console.log('Created Successfully');
           },
           error: (err) => {
