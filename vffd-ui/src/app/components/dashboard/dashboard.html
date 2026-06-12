@@ -8,7 +8,7 @@
 
     <mat-card class="summary-card">
       <div class="title">Average Adoption Percentage</div>
-      <div class="value">{{ summaryData?.averageAdoptionRate ?? 0 }}</div>
+      <div class="value">{{ (summaryData?.averageAdoptionRate ?? 0) | number:'1.2-2' }}</div>
     </mat-card>
   </div>
 
@@ -19,7 +19,7 @@
     [columnDefs]="colDefs"
     [pagination]="true"
     [paginationPageSize]="20"
-    (modelUpdated)="onFilterChanged()"
+    (filterChanged)="onFilterChanged()"
     (gridReady)="onGridReady($event)"/>
 
   <button mat-flat-button (click)="openCreateDialog()">create</button>

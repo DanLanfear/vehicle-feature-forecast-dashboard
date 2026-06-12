@@ -8,10 +8,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
 import { MatCard } from '@angular/material/card';
 import { ForecastSummary } from '../../models/forecast-summary.model';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [AgGridAngular, MatButton, MatCard],
+  imports: [AgGridAngular, MatButton, MatCard, DecimalPipe],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
@@ -51,7 +52,6 @@ export class Dashboard implements OnInit {
         this.recordData = [...data];
         const ids = this.recordData.map((record) => record.id);
         this.getSummaryData(ids);
-        this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('API error', err);
@@ -72,8 +72,7 @@ export class Dashboard implements OnInit {
       if (result) {
         this.forecastRecordService.createForecastRecord(result).subscribe({
           next: (data) => {
-            this.recordData.push(data);
-            console.log('fuck');
+            console.log('Created Successfully');
           },
           error: (err) => {
             console.error('API error', err);
@@ -107,7 +106,8 @@ export class Dashboard implements OnInit {
   getSummaryData(ids: number[]) {
     this.forecastRecordService.getForecastSummary(ids).subscribe({
       next: (data) => {
-        this.summaryData = { ...data };
+        this.summaryData = data;
+        this.cdr.markForCheck();
       },
       error: (err) => {
         console.error('API error', err);
